@@ -21,6 +21,30 @@ class BaseView {
     return head;
   }
 
+  createTimerText(value) {
+    var text = document.createElement("p");
+    text.innerHTML = value;
+    text.style.fontSize = '60px';
+    text.style.position = 'absolute';
+    text.style.left = '100px';
+    text.style.top = '250px';
+
+    return text;
+  }
+
+  createQuestionText(value) {
+    var text = document.createElement("p");
+    text.innerHTML = value;
+    text.style.fontSize = '25px';
+    text.style.color = 'rgb(149, 15, 0)';
+    text.style.position = 'absolute';
+    text.style.left = '20%';
+    text.style.top = '20%';
+
+    return text;
+
+  }
+
   createButton(text, x, y, w, h, fontSize) {
     var button = document.createElement('input');
     button.setAttribute('type', 'button');
@@ -32,7 +56,7 @@ class BaseView {
 
     if (w !== undefined) button.style.width = w + 'px';
     if (h !== undefined) button.style.height = h + 'px';
-    if (fontSize !== undefined) button.style.fontSize = fontSize + 'px';
+    if (fontSize !== undefined) button.style.fontSize = fontSize + 'px'; else button.style.fontSize = '20px';
 
     return button;
   }

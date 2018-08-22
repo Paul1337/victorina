@@ -1,7 +1,8 @@
 
 
-const BLIZ_TYPE_NORMAL = 0;
-const BLIZ_TYPE_SUPER = 1;
+
+
+
 
 window.onload = function() {
 
