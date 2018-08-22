@@ -1,12 +1,11 @@
 
 
+const BLIZ_TYPE_NORMAL = 0;
+const BLIZ_TYPE_SUPER = 1;
+
 window.onload = function() {
 
   var model = new Model();
-
-  var menuController = new MenuController(model);
-  var quizController = new QuizController(model);
-
-  menuController.view.show();
+  var router = new Router(model);
 
 }

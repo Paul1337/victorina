@@ -1,6 +1,25 @@
 .ContentDivs {
 
+  background-color: #34d9ff;
+  width: 100%;
+  height: 100%;
+  position: fixed;
 
+}
 
-  
+.StandartButton {
+
+  position: absolute;
+  background-color: #fff700;
+  cursor:pointer;
+  border-radius: 12px;
+
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+.StandartButton:hover {
+  background-color: #46c208; 
+  color: white;
+
 }
