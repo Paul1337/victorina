@@ -22,27 +22,38 @@ class BaseView {
   }
 
   createTimerText(value) {
-    var text = document.createElement("p");
-    text.innerHTML = value;
-    text.style.fontSize = '60px';
-    text.style.position = 'absolute';
-    text.style.left = '100px';
-    text.style.top = '250px';
-
+    var style = 'font-size: 60px; left: 100px; top: 250px;';
+    var text = this.createText(value, style);
     return text;
   }
 
   createQuestionText(value) {
+    var style = 'font-size: 25px; left: 20%; top: 20%; color: rgb(149, 15, 0);';
+    var text = this.createText(value, style);
+    return text;
+  }
+
+  createPointsText(value) {
+    var style = 'font-size: 30px; left: 100px; top: 400px; color: rgb(223, 250, 0);';
+    var text = this.createText(value, style);
+    return text;
+  }
+
+  createText(val, style) {
     var text = document.createElement("p");
-    text.innerHTML = value;
-    text.style.fontSize = '25px';
-    text.style.color = 'rgb(149, 15, 0)';
-    text.style.position = 'absolute';
-    text.style.left = '20%';
-    text.style.top = '20%';
+    text.innerHTML = val;
+    text.style = style + 'position: absolute;';
 
     return text;
+  }
 
+  createAnswerButton(text) {
+    var button = document.createElement('input');
+    button.setAttribute('type', 'button');
+    button.setAttribute('class', 'answerButton');
+    button.setAttribute('value', text);
+
+    return button;
   }
 
   createButton(text, x, y, w, h, fontSize) {
@@ -63,6 +74,11 @@ class BaseView {
 
   show() {
     this.contentDiv.style.display = 'block';
+    this.makeDivNormalColor();
+  }
+
+  makeDivNormalColor() {
+    this.contentDiv.style.backgroundColor = '#34d9ff';
   }
 
   hide() {

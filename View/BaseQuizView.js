@@ -23,7 +23,60 @@ class BaseQuizView extends BaseView {
     this.timer = this.createTimerText("");
     this.contentDiv.appendChild(this.timer);
 
+    this.pointsText = this.createPointsText('');
+    this.contentDiv.appendChild(this.pointsText);
+
     this.hide();
+
+  }
+
+  hideQuestion() {
+    this.question.innerHTML = '';
+  }
+
+  zoomInPointsText() {
+    this.pointsText.style.fontSize = '60px';
+  }
+
+  zoomOutPointsText() {
+    this.pointsText.style.fontSize = '30px';
+  }
+
+  showPoints(points) {
+    this.pointsText.innerHTML = 'Выигрыш: ' + points;
+  }
+
+  showPrize(prize) {
+    this.question.innerHTML += ' (цена - ' + prize + ')';
+  }
+
+  decorateDiv() {
+    var r = Math.random() * 86 + 70;
+    var g = Math.random() * 186 + 70;
+    var b = Math.random() * 186 + 70;
+
+    this.contentDiv.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+  }
+
+  makeDivRed() {
+    this.contentDiv.style.backgroundColor = 'rgba(255, 0, 0, 0.72)';
+  }
+
+  hideTimer() {
+    this.timer.innerHTML = '';
+  }
+
+  hideReward() {
+    this.pointsText.innerHTML = '';
+  }
+
+  hideAnswers() {
+    var self = this;
+    this.answerButtons.forEach(function(btn) {
+      self.contentDiv.removeChild(btn);
+    });
+
+    this.answerButtons = [];
 
   }
 
@@ -45,9 +98,9 @@ class BaseQuizView extends BaseView {
   showAnswers(answers) {
     this.answerButtons = [];
 
-    for (var i = 0; i < answers.length; i ++) {
-      this.answerButtons[i] = this.createButton(answers[i], i * 250 + 320, 300);
-      this.contentDiv.appendChild( this.answerButtons[i] );
+    for (var i = 0; i < answers.length; i++) {
+      this.answerButtons[i] = this.createButton(answers[i], i * 200 + 320, 300 + i * 50);
+      this.contentDiv.appendChild(this.answerButtons[i]);
 
     }
   }

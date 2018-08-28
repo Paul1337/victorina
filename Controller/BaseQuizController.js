@@ -1,8 +1,10 @@
 class BaseQuizController extends BaseController {
 
 
-  constructor() {
+  constructor(model) {
     super();
+    this.model = model;
 
   }
+
 }
